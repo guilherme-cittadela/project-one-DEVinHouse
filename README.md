@@ -6,7 +6,6 @@
 * Um cabeçalho dentro da página, para que o usuário saiba facilmente em que página se encontra e do que se trata o conteúdo.(check)
 =======
 * Um cabeçalho dentro da página, para que o usuário saiba facilmente em que página se encontra e do que se trata o conteúdo...
->>>>>>> 7d08ffdf0a92165d547294ff0a049097f1583f7b
 * Um campo de texto para digitar o nome de uma nova atividade a ser adicionada à lista.
 * Um botão para adicionar uma nova atividade à lista.
 * Cada linha da lista deve conter: checkbox para o usuário marcar que aquela atividade já foi realizada; o texto que o usuário digitou ao cadastrar a atividade; botão para excluir a atividade da lista, caso desejado.
