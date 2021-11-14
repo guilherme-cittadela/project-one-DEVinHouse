@@ -17,9 +17,10 @@ window.onload = function(){
         ul.appendChild(div)
         var span = document.createElement('span')
         var checkbox = document.createElement('input')
+        console.log(checkbox)
         checkbox.type = 'checkbox'
         checkbox.name = 'checktask'
-        checkbox.id = 'checktask'
+        checkbox.onchange = function(eve) {check(eve, this)}
         span.appendChild(checkbox)
         span.appendChild(document.createTextNode(arrayTasks.tasks[i]))
         div.appendChild(span);
@@ -31,6 +32,7 @@ window.onload = function(){
         button.onclick = function() {del(this)};
     }
     
+  
     
     
 }
@@ -64,9 +66,10 @@ btnAdd.onclick = function(){
         ul.appendChild(div)
         var span = document.createElement('span')
         var checkbox = document.createElement('input')
+        console.log()
         checkbox.type = 'checkbox'
         checkbox.name = 'checktask'
-        checkbox.id = 'checktask'
+        checkbox.onchange = function(eve) {check(eve, this)}
         span.appendChild(checkbox)
         span.appendChild(document.createTextNode(taskValue.value))
         div.appendChild(span);
@@ -78,6 +81,12 @@ btnAdd.onclick = function(){
         button.onclick = function() {del(this)};
         taskValue.value = ""
 }}
+
+function check(eve, element) {
+    console.log(eve.currentTarget.checked)
+    element.parentElement.style["text-decoration"] = 'line-through';
+    console.log('aqui')
+}
 
 //deleta determinado item do localstorage
 function del(elemento){
@@ -98,3 +107,6 @@ function del(elemento){
 
 }
 
+
+const cbElement = document.getElementsByName('checktask')
+console.log(cbElement)
