@@ -1,16 +1,16 @@
 
-//resgatar o botão
-var btnAdd = document.getElementById('btnAdd');
-var arrayTasks = new Array();
-var _local_storage = localStorage.getItem('tasks');
+//variáveis globais
+var btnAdd = document.getElementById('btnAdd'); //resgata o botão que adiciona as tarefas
+var arrayTasks = new Array(); //cria array vazia
+var _local_storage = localStorage.getItem('tasks'); //busca no localstorage os dados cadastrados 
 
-
+//função que carrega os dados do local storage ao carregar a página
 window.onload = function(){
     
     _local_storage = localStorage.getItem('tasks')
-    arrayTasks = JSON.parse(_local_storage);
+    arrayTasks = JSON.parse(_local_storage); 
 
-    for(var i = 0; i < arrayTasks.tasks.length; i++ ){
+    for(var i = 0; i < arrayTasks.tasks.length; i++ ){ //percorre o local storage e carrega os dados existentes
         var ul = document.getElementById('task-list'); 
         var div = document.createElement('div')
         div.className = 'tasks'
@@ -34,13 +34,13 @@ window.onload = function(){
     
     
 }
-
-btnAdd.onclick = function(){
+//adiciona o html para as tarefas digitadas
+btnAdd.onclick = function(){  
     //resgatar o valor do input
     var taskValue = document.getElementById('addTask');
     _local_storage = localStorage.getItem('tasks');
 
-    if(taskValue.value === ""){
+    if(taskValue.value === ""){    //validação do input, verifica se algo foi digitado
         alert('Adicione uma tarefa')
     }else{
 
@@ -52,11 +52,12 @@ btnAdd.onclick = function(){
         } else{
 
             arrayTasks = JSON.parse(_local_storage);
-            arrayTasks['tasks'].push(taskValue.value)//adicionar valor a um array
+            arrayTasks['tasks'].push(taskValue.value)  //adicionar valor a um array
             jsonTasks_local_storage = JSON.stringify(arrayTasks);
             localStorage.setItem('tasks', jsonTasks_local_storage)
         
         }
+        //criação da estrutura html que exibe as tarefas
         var ul = document.getElementById('task-list'); 
         var div = document.createElement('div')
         div.className = 'tasks'
@@ -78,6 +79,7 @@ btnAdd.onclick = function(){
         taskValue.value = ""
 }}
 
+//deleta determinado item do localstorage
 function del(elemento){
     if(window.confirm("Você deseja excluir a tarefa?")){
 
