@@ -10,9 +10,9 @@ window.onload = function(){
     _local_storage = localStorage.getItem('tasks')
     arrayTasks = JSON.parse(_local_storage); 
     for(var i = 0; i < arrayTasks.tasks.length; i++ ){ //percorre o local storage e carrega os dados existentes
-        //chama a funcção para criar o html para cada item salvo no localstorage
-        createTaskList(arrayTasks.tasks[i])
-    }
+    //chama a funcção para criar o html para cada item salvo no localstorage
+    createTaskList(arrayTasks.tasks[i])
+}
 }
 
 
@@ -65,9 +65,9 @@ btnAdd.onclick = function(){
         }
 
 
-        //chama a funcção para criar o html
-        createTaskList(taskValue.value)
-        taskValue.value = ''
+    //chama a funcção para criar o html
+    createTaskList(taskValue.value)
+    taskValue.value = ''
 
 }}
 
