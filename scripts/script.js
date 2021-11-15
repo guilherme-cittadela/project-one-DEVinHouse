@@ -12,6 +12,7 @@ window.onload = function(){
     arrayTasks = JSON.parse(_local_storage); 
 
     for(var i = 0; i < arrayTasks.tasks.length; i++ ){ //percorre o local storage e carrega os dados existentes
+        //chama a funcção para criar o html para cada item salvo no localstorage
         createList(arrayTasks.tasks[i])
     }
 }
@@ -65,7 +66,7 @@ btnAdd.onclick = function(){
             localStorage.setItem('tasks', jsonTasks_local_storage)
         
         }
-        //criação da estrutura html que exibe as tarefas
+        //chama a funcção para criar o html
         createList(taskValue.value)
         taskValue.value = ''
 

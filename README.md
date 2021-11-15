@@ -11,7 +11,7 @@
 
 * Cada linha da lista deve conter: checkbox para o usuário marcar que aquela atividade já foi realizada; o texto que o usuário digitou ao cadastrar a atividade; botão para excluir a atividade da lista, caso desejado. (check)
 
-* Quando o usuário marcar uma tarefa como realizada, o texto daquela linha deve ser tachado (line-through).
+* Quando o usuário marcar uma tarefa como realizada, o texto daquela linha deve ser tachado (line-through).(check)
 
 * A lista deve ser salva no "localStorage" do navegador (incluindo quais itens já foram realizados), e deve ser carregada sempre que a página for reaberta.. (check)
 
