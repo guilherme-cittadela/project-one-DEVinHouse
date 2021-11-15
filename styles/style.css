@@ -32,6 +32,8 @@ h1{
     font-weight: 500;
     position: relative;
     border-radius: 5px;
+    color: #258a6f;
+    font-weight: 500;
 }
 input:focus{
     outline:none;

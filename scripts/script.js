@@ -13,13 +13,13 @@ window.onload = function(){
 
     for(var i = 0; i < arrayTasks.tasks.length; i++ ){ //percorre o local storage e carrega os dados existentes
         //chama a funcção para criar o html para cada item salvo no localstorage
-        createList(arrayTasks.tasks[i])
+        createTaskList(arrayTasks.tasks[i])
     }
 }
 
 
 //função para criar a lista de tarefas
-function createList(element){
+function createTaskList(element){
     var ul = document.getElementById('task-list'); 
         var div = document.createElement('div')
         div.className = 'tasks'
@@ -29,7 +29,7 @@ function createList(element){
         console.log(checkbox)
         checkbox.type = 'checkbox'
         checkbox.name = 'checktask'
-        checkbox.onchange = function(eve) {check(eve, this)}
+        checkbox.onchange = function(eve) {isChecked(eve, this)}
         span.appendChild(checkbox)
         span.appendChild(document.createTextNode(element))
         div.appendChild(span);
@@ -38,7 +38,7 @@ function createList(element){
         button.className = "btnDel";
         button.setAttribute("id", element)
         div.appendChild(button)
-        button.onclick = function() {del(this)};
+        button.onclick = function() {deleteTask(this)};
 }
 
 
@@ -67,7 +67,7 @@ btnAdd.onclick = function(){
         
         }
         //chama a funcção para criar o html
-        createList(taskValue.value)
+        createTaskList(taskValue.value)
         taskValue.value = ''
 
 }}
@@ -75,7 +75,7 @@ btnAdd.onclick = function(){
 
 
 //função para verificar se a tarefa está 'checada', e caso esteja, risca o texto
-function check(eve, element) {
+function isChecked(eve, element) {
     if(eve.currentTarget.checked){
         element.parentElement.style["text-decoration"] = 'line-through';
         
@@ -86,7 +86,7 @@ function check(eve, element) {
 
 
 //deleta determinado item do localstorage
-function del(elemento){
+function deleteTask(elemento){
     if(window.confirm("Você deseja excluir a tarefa?")){
 
         _local_storage = localStorage.getItem('tasks')
