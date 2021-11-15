@@ -1,5 +1,7 @@
 # Primeiro projeto do DEVinHouse
 
+pode ser visualizado em: https://guilherme-cittadela.github.io/project-one-DEVinHouse/
+
 ## Requisitos da aplicação
 * Um título na aba do navegador, para que o usuário encontre a sua aplicação no meio das várias abas que constantemente mantém abertas. (check)
 
