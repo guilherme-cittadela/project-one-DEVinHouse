@@ -53,14 +53,13 @@ input:focus{
 span{
     padding: 25px;
     display: flex;
-    align-items:center;
-    justify-content: space-between;
-
-    
+    align-items:left;
 }
 
-.completed{
-    text-decoration: line-through;
+.tasks{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 button{
@@ -83,6 +82,7 @@ button{
 .btnDel{
     height: 30px;
     width: 70px;
+    margin-right: 16px;
     background-color: rgb(223, 79, 79);
 }
 button:hover{
@@ -92,4 +92,8 @@ button:hover{
 .btnDel:hover{
     background-color: rgb(168, 64, 64);
 
+}
+
+.checked{
+    text-decoration: line-through;
 }

@@ -4,6 +4,7 @@ var btnAdd = document.getElementById('btnAdd'); //resgata o botão que adiciona 
 var arrayTasks = new Array(); //cria array vazia
 var _local_storage = localStorage.getItem('tasks'); //busca no localstorage os dados cadastrados 
 
+
 //função que carrega os dados do local storage ao carregar a página
 window.onload = function(){
     
@@ -11,7 +12,14 @@ window.onload = function(){
     arrayTasks = JSON.parse(_local_storage); 
 
     for(var i = 0; i < arrayTasks.tasks.length; i++ ){ //percorre o local storage e carrega os dados existentes
-        var ul = document.getElementById('task-list'); 
+        createList(arrayTasks.tasks[i])
+    }
+}
+
+
+//função para criar a lista de tarefas
+function createList(element){
+    var ul = document.getElementById('task-list'); 
         var div = document.createElement('div')
         div.className = 'tasks'
         ul.appendChild(div)
@@ -22,20 +30,18 @@ window.onload = function(){
         checkbox.name = 'checktask'
         checkbox.onchange = function(eve) {check(eve, this)}
         span.appendChild(checkbox)
-        span.appendChild(document.createTextNode(arrayTasks.tasks[i]))
+        span.appendChild(document.createTextNode(element))
         div.appendChild(span);
         var button = document.createElement('button');
         button.innerText = "Excluir";
         button.className = "btnDel";
-        button.setAttribute("id", arrayTasks.tasks[i])
-        span.appendChild(button)
+        button.setAttribute("id", element)
+        div.appendChild(button)
         button.onclick = function() {del(this)};
-    }
-    
-  
-    
-    
 }
+
+
+
 //adiciona o html para as tarefas digitadas
 btnAdd.onclick = function(){  
     //resgatar o valor do input
@@ -60,33 +66,23 @@ btnAdd.onclick = function(){
         
         }
         //criação da estrutura html que exibe as tarefas
-        var ul = document.getElementById('task-list'); 
-        var div = document.createElement('div')
-        div.className = 'tasks'
-        ul.appendChild(div)
-        var span = document.createElement('span')
-        var checkbox = document.createElement('input')
-        console.log()
-        checkbox.type = 'checkbox'
-        checkbox.name = 'checktask'
-        checkbox.onchange = function(eve) {check(eve, this)}
-        span.appendChild(checkbox)
-        span.appendChild(document.createTextNode(taskValue.value))
-        div.appendChild(span);
-        var button = document.createElement('button');
-        button.innerText = "Excluir";
-        button.className = "btnDel";
-        button.setAttribute("id", taskValue.value)
-        span.appendChild(button)
-        button.onclick = function() {del(this)};
-        taskValue.value = ""
+        createList(taskValue.value)
+        taskValue.value = ''
+
 }}
 
+
+
+//função para verificar se a tarefa está 'checada', e caso esteja, risca o texto
 function check(eve, element) {
-    console.log(eve.currentTarget.checked)
-    element.parentElement.style["text-decoration"] = 'line-through';
-    console.log('aqui')
+    if(eve.currentTarget.checked){
+        element.parentElement.style["text-decoration"] = 'line-through';
+        
+    }
+    else{element.parentElement.style["text-decoration"] = 'none';}
 }
+
+
 
 //deleta determinado item do localstorage
 function del(elemento){
@@ -108,5 +104,3 @@ function del(elemento){
 }
 
 
-const cbElement = document.getElementsByName('checktask')
-console.log(cbElement)
